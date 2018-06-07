@@ -1,12 +1,13 @@
-float1= document.getElementById("premier_nombre").value;
-float2= document.getElementById("deuxieme_nombre").value;
+
 
 function multiply (integer, float){
-    integer=Math.floor(float1);
-    float=float2;
+    integer= document.getElementById("premier_nombre").value;
+    float= document.getElementById("deuxieme_nombre").value;
+    integer=Math.floor(integer);
     alert(integer*float);
-    console.log(float1);
-    console.log(float2);
+   /* console.log(float1);
+    console.log(float2);*/
 }
+/*multiply(float1,float2)*/
 
 
