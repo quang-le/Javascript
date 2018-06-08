@@ -68,3 +68,16 @@ let calculDebile =()=>{
     a=1; a+=--b;
     alert("a=1, suivi de a=a+(b-1). Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
 }
+/*exercice 6*/
+let soustrait = x=>{
+    if (x>-1){
+        return x-2;
+    }
+    else {
+        return x= "Nombre négatif!"
+    }
+}
+let affiche3 = ()=> {
+    alert(soustrait(tab[0]));
+    alert(soustrait(tab[2]));
+}
