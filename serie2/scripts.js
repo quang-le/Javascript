@@ -105,3 +105,15 @@ var semaine=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
 
 jourSemaine=()=> alert(semaine[jour]);
 choixDansLaDate=()=>alert(now);
+
+/*exercice9*/
+
+testWhile=()=>{
+    padipado=prompt("écris un mot qui contient la lettre p");
+    ouinon=padipado.includes("p");
+    while(ouinon==false){
+        padipado=prompt("écris un mot qui contient la lettre p");
+        ouinon=padipado.includes("p");
+    }
+    alert(padipado);
+}
