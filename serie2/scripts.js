@@ -44,3 +44,27 @@ let affiche2= ()=>{
     alert(additionne(tab[0]));
     alert(additionne(tab[2]));
 }
+/*exercice5*/
+let calculDebile =()=>{
+    alert("valeurs initiales a= "+a+" b= "+b);
+    a=b++;
+    alert("a=b, b=b+1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=++b;
+    alert("a=b+1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=b--;
+    alert("a=b, b= b-1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=--b;
+    alert("a=b-1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a+=b++;
+    alert("a=a+b, b=b+1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=1; a+=++b;
+    alert("a=1, suivi de a=a+(b+1). Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=1; a-=b++;
+    alert("a=1, suivi de a=a-b, b=b+1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=1; a-=++b;
+    alert ("a=1, suivi de a=a-moins(b+1). Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=1; a+=b--;
+    alert("a=1, suivi de a=a+b, b=b-1. Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+    a=1; a+=--b;
+    alert("a=1, suivi de a=a+(b-1). Nouvelle valeur de a= "+a+", nouvelle valeur de b= "+b);
+}
