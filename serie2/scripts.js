@@ -14,3 +14,13 @@ const periRectangle=(long, large)=>{
     large=getNumber(large);
     alert("Le périmètre du rectangle est de "+(long+large)*2+" cm");
  }
+
+ var radius="0"
+ let askRadius= () =>{
+     radius=prompt("Entrez le rayon du cercle");
+     radius=getNumber(radius);
+     radius=Math.PI*Math.pow(radius,2);
+     return radius; 
+ }
+
+ const displayResult = () => alert(radius);
