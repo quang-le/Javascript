@@ -81,3 +81,21 @@ let affiche3 = ()=> {
     alert(soustrait(tab[0]));
     alert(soustrait(tab[2]));
 }
+/*exercice7*/
+let faireChoix=()=>{
+    choix=prompt("Choisis 1, 2 ou 3");
+    choix=getNumber(choix);
+    if (choix==1){
+        alert("Merci!");
+    }
+    else if(choix==2){
+        alert("Bonjour!");
+    }
+    else if (choix==3){
+        alert ("Au revoir");
+    }
+    else {
+        alert("Que voulez-vous dire?");
+    }
+
+}
