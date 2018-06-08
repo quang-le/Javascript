@@ -129,31 +129,24 @@ somme=()=>{
 }
 /*exercice11*/
 calculMoyenne=()=>{
-
     checkEntier=(prompt)=>{
        return Number.isInteger(Number(prompt));  
     }
-
     Entier=prompt("Entre un nombre entier")
     while (checkEntier(Entier)==false){
         Entier=prompt("Erreur! Entre un nombre entier");
     }
-
     Entier=Number(Entier);
     comptage=1;
     agregate= Entier;
     console.log(Entier,comptage, agregate)
-
     extraNumber=prompt("Entre un nouveau nombre entier");
-
     while (checkEntier(extraNumber)==false){
         extraNumber=prompt("Erreur! Entre un nombre entier!!");
     }
-
     extraNumber=parseInt(extraNumber);
     comptage=comptage+1;
     console.log(Entier,extraNumber, comptage, agregate);
-
     while (extraNumber>-1) {
         agregate+=extraNumber;
         extraNumber=prompt("Entre un encore un nombre entier");
@@ -169,8 +162,72 @@ calculMoyenne=()=>{
     if (extraNumber<0){
         comptage-=1;
     }
- 
     alert (agregate/comptage)
-    
     console.log(Entier,extraNumber,comptage,agregate);
+}
+/*Exercice12*/
+conversionTemperature=()=>{
+    celsiusToFahrenheit= temperature=>{
+        temperature=temperature*1.8+32;
+        return temperature;
+    }
+    celsiusToKelvin= temperature=>{
+        temperature+=273.15;
+        return temperature;
+    }
+    fahrenheitToCelsius=temperature=>{
+        temperature=(temperature-32)/1.8;
+        return temperature;
+    }
+    fahrenheitToKelvin= temperature=>{
+        temperature=((temperature-32)/1.8)+273.15;
+        return temperature;
+    }
+    kelvinToCelsius=temperature=>{
+        temperature-=273.15;
+        return temperature;
+    }
+    kelvinToFahrenheit=temperature=>{
+        temperature*=1.8;
+        temperature-=459.67;
+        return temperature;
+    }
+   /* convertisseurs=[celsiusToFahrenheit(),celsiusToKelvin(),fahrenheitToCelsius(),fahrenheitToKelvin(),kelvinToCelsius(),kelvinToFahrenheit()]*/
+    uniteMesure=prompt("Entrez le numéro qui correspond à votre choix :\n1. Celsius vers Fahrenheit\n2. Celsius vers Kelvin\n3. Fahrenheit vers Celsius\n4. Fahrenheit vers Kelvin\n5. Kelvin vers Celsius\n6. Kelvin vers Fahrenheit");
+    uniteMesure=Number(uniteMesure)
+    if (uniteMesure<1 || uniteMesure>6){
+        alert("Choix non valide, veuillez réessayer");
+        return;
+    }
+    else if (isNaN(uniteMesure)==true){
+        alert("Choix non valide, veuillez réessayer");
+        return;
+    }
+    else{
+        temperature= prompt("Quelle temperature voulez-vous convertir");
+        temperature=Number(temperature);
+        /*console.log(celsiusToFahrenheit(temperature))*/
+        if (isNaN(temperature==true)){
+            alert("Choix non valide, veuillez réessayer");
+            return;
+        }
+        else if (uniteMesure==1){
+            return alert(celsiusToFahrenheit(temperature));
+        }
+        else if (uniteMesure==2){
+            return alert (celsiusToKelvin(temperature));
+        }
+        else if (uniteMesure==3){
+            return alert(fahrenheitToCelsius(temperature));
+        }
+        else if (uniteMesure==4){
+            return alert(fahrenheitToKelvin(temperature));
+        }
+        else if (uniteMesure==5){
+            return alert(kelvinToCelsius(temperature));
+        }
+        else if (uniteMesure==6){
+            return alert(kelvinToFahrenheit(temperature));
+        }
+    }
 }
