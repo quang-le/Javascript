@@ -207,7 +207,7 @@ conversionTemperature=()=>{
         temperature= prompt("Quelle temperature voulez-vous convertir");
         temperature=Number(temperature);
         /*console.log(celsiusToFahrenheit(temperature))*/
-        if (isNaN(temperature==true)){
+        if (isNaN(temperature)==true){
             alert("Choix non valide, veuillez réessayer");
             return;
         }
@@ -229,5 +229,48 @@ conversionTemperature=()=>{
         else if (uniteMesure==6){
             return alert(kelvinToFahrenheit(temperature));
         }
+    }
+}
+/*Exercice 13*/
+calculIMC=()=>{
+    alert("Vous êtes sûr-e?");
+    taille=prompt("Votre taille en mètres")
+    taille=Number(taille);
+    poids=prompt("Votre poids en kg")
+    poids=Number(poids);
+    console.log (taille);
+    console.log (poids);
+    if (isNaN(taille)==true){
+        alert("Erreur! veuillez réessayer");
+        return;
+    }
+    else if (isNaN(poids)==true){
+        alert("Erreur! veuillez réessayer");
+        return;
+    }
+    else{
+        imc=poids/(taille**2);
+    }
+    console.log(imc);
+    if (imc<16.5){
+        return alert("Votre IMC est de "+imc+". Vous êtes en dénutrition.")
+    }
+    else if (16.5<=imc<18.5){
+        return alert("Votre IMC est de "+imc+". Vous êtes maigre")
+    }
+    else if (18.5<=imc<25){
+        return alert("Votre IMC est de "+imc+". Vous êtes de corpulence moyenne")
+    }
+    else if (25<=imc<30){
+        return alert("Votre IMC est de "+imc+". Vous êtes en surpoids")
+    }
+    else if (30<=imc<35){
+        return alert("Votre IMC est de "+imc+". Vous êtes en modérément obèse")
+    }
+    else if (35<=imc<40){
+        return alert("Votre IMC est de "+imc+". Vous souffrez d'obésité sévère")
+    }
+    else if (40<imc){
+        return alert("Votre IMC est de "+imc+". Vous souffrez d'obésité morbide")
     }
 }
