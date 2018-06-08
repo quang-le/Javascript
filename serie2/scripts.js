@@ -117,3 +117,13 @@ testWhile=()=>{
     }
     alert(padipado);
 }
+/*exercice10*/
+var resultat=0;
+somme=()=>{
+    for(let timesAsked=0;timesAsked<3; timesAsked++){
+        nombre=prompt("saisissez un nombre");
+        nombre= getNumber(nombre);
+        resultat=resultat+nombre;
+    }
+    alert(resultat);
+}
