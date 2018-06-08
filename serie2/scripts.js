@@ -97,5 +97,11 @@ let faireChoix=()=>{
     else {
         alert("Que voulez-vous dire?");
     }
-
 }
+/*exercice8*/
+var now=new Date();
+var jour=now.getDay();
+var semaine=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+
+jourSemaine=()=> alert(semaine[jour]);
+choixDansLaDate=()=>alert(now);
