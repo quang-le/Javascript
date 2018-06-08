@@ -1,3 +1,4 @@
+/*exercice1*/
 const getNumber = number => parseInt(number);
 
 const surfaceRectangle=(longueur, largeur)=>{
@@ -14,7 +15,7 @@ const periRectangle=(long, large)=>{
     large=getNumber(large);
     alert("Le périmètre du rectangle est de "+(long+large)*2+" cm");
  }
-
+/*exercice 2*/
  var radius="0"
  let askRadius= () =>{
      radius=prompt("Entrez le rayon du cercle");
@@ -24,3 +25,13 @@ const periRectangle=(long, large)=>{
  }
 
  const displayResult = () => alert(radius);
+
+/*exercice3*/
+var a=3;
+var b=2;
+
+let triple = x => {return x*3};
+let affiche = ()=> {
+    alert(triple(a));
+    alert(triple(b));
+}
