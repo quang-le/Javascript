@@ -127,3 +127,50 @@ somme=()=>{
     }
     alert(resultat);
 }
+/*exercice11*/
+calculMoyenne=()=>{
+
+    checkEntier=(prompt)=>{
+       return Number.isInteger(Number(prompt));  
+    }
+
+    Entier=prompt("Entre un nombre entier")
+    while (checkEntier(Entier)==false){
+        Entier=prompt("Erreur! Entre un nombre entier");
+    }
+
+    Entier=Number(Entier);
+    comptage=1;
+    agregate= Entier;
+    console.log(Entier,comptage, agregate)
+
+    extraNumber=prompt("Entre un nouveau nombre entier");
+
+    while (checkEntier(extraNumber)==false){
+        extraNumber=prompt("Erreur! Entre un nombre entier!!");
+    }
+
+    extraNumber=parseInt(extraNumber);
+    comptage=comptage+1;
+    console.log(Entier,extraNumber, comptage, agregate);
+
+    while (extraNumber>-1) {
+        agregate+=extraNumber;
+        extraNumber=prompt("Entre un encore un nombre entier");
+        extraNumber=Number(extraNumber);
+        while (checkEntier(extraNumber)==false){
+            extraNumber=prompt("Erreur! Entre un nombre entier!!");
+            extraNumber=Number(extraNumber);
+
+        }
+        comptage=comptage+1;
+        console.log(Entier,extraNumber, comptage, agregate);
+    }
+    if (extraNumber<0){
+        comptage-=1;
+    }
+ 
+    alert (agregate/comptage)
+    
+    console.log(Entier,extraNumber,comptage,agregate);
+}
