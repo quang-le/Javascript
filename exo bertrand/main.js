@@ -1,9 +1,5 @@
 let limit=prompt("combien de fois?")
 
-control=()=>{
-
-}
-
 exo =input=>{
 limit=Number(limit);
 controlVar=parseInt(limit);
@@ -24,7 +20,6 @@ for (count=0; count<limit; count++){
 input+=1
 if (input<=limit){
     exo(input)
-
 }
 else{
     return console.log("et voilà");

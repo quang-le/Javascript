@@ -2,10 +2,15 @@
 
 guessLetter=()=>{
 //Variables
-    var solution=["B","O","N","J","O","U","R"]; // la solution
-    var guesses=[];                             //stocke les tentatives du joueur
-    var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées
+    /*var solution=["B","O","N","J","O","U","R"]; 
+    var guesses=[];                             
+    var answer=["_","_","_","_","_","_","_"];   */
     
+    var askRiddle=prompt("Quel mot veux-tu faire deviner?");
+    var solution=askRiddle.split("");
+    var answer=[];
+    generateAnswer
+
     let printAnswer=document.createElement("P");        //affiche les traits "vides"
     let answerText=document.createTextNode(answer.join("."));
 
