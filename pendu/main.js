@@ -1,7 +1,7 @@
 
 
 guessLetter=()=>{
-
+//Variables
     var solution=["B","O","N","J","O","U","R"]; // la solution
     var guesses=[];                             //stocke les tentatives du joueur
     var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées
@@ -12,14 +12,16 @@ guessLetter=()=>{
     let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées
     let guessesText=document.createTextNode(guesses.reverse().join("-"));
     
-
+//Functions
     generateHTML=(tag,content)=> {
         tag.appendChild(content);
         document.body.appendChild(tag)
     } 
+    
     updateHTML=(where,what)=> where.innerHTML=what.join();
+    
     compareLetters=()=>{
-        guess=prompt("Entrez une lettre");
+        guess= document.getElementById("lettre").value;   //Older solution with prompt -> guess=prompt("Entrez une lettre");
         guesses.push(guess);
         for (let i=0; i<solution.length; i++){  //compare l'input du joueur à la solution)
             if (guess==solution[i]){
@@ -28,13 +30,14 @@ guessLetter=()=>{
                 answer.splice(i,1,guess);       //remplit la solution avec les lettres devinées
                 console.log(answer); 
             }
-        }   
+        } 
+     
     }
 
     generateHTML(printAnswer,answerText);
     generateHTML(printGuesses,guessesText);
 
-    
+    //Game
     playGame=()=>{
         compareLetters();
 
@@ -49,11 +52,9 @@ guessLetter=()=>{
             return alert("Félicitations, la solution était "+answer.join());
         }
         else{
-            alert("Essayez encore");
+            //alert("Essayez encore");
             playGame();
-        }
-
-        
+        }   
     }
     playGame();
 }
