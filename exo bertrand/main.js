@@ -1,12 +1,18 @@
+let limit=prompt("combien de fois?")
+
 exo =input=>{
 string=String(input);
 let display=" ";
-    for (count=0; count<5; count++){
+
+limit=Number(limit);
+
+for (count=0; count<limit; count++){
         display=display+string;
         console.log(display);
     }
+
 input+=1
-if (input<6){
+if (input<=limit){
     exo(input)
 }
 else{
