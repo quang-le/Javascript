@@ -3,19 +3,32 @@ var guesses=[];                             //stocke les tentatives du joueur
 var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées*/
 
 guessLetter=()=>{
-   
-    let printAnswer=document.createElement("P");        //affiche les traits "vides"
-    let answerText=document.createTextNode(answer.join("."));
+    var askRiddle=prompt("Quel mot veux-tu faire deviner?");
+    var solution=askRiddle.split("");
+    var answer=[];
+    var guesses=[];
 
-    let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées
-    let guessesText=document.createTextNode(guesses.reverse().join("-"));
+    let printAnswer=document.createElement("P");        //affiche les traits "vides"
     
+    let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées  
+
+    generateAnswer=()=>{
+        for(j=0;j<solution.length;j++){
+            answer.push("_");
+            console.log("answer= "+answer);
+            console.log(solution.length);
+        }
+        let answerText=document.createTextNode(answer.join("."));
+        generateHTML(printAnswer,answerText);
+    }
 
     generateHTML=(tag,content)=> {
         tag.appendChild(content);
-        document.body.appendChild(tag)
-    } 
-    updateHTML=(where,what)=> where.innerHTML=what.join();
+        document.body.appendChild(tag);
+    }
+
+    updateHTML=(where,what)=> where.innerHTML=what.join(".");
+
     compareLetters=()=>{
         guess=prompt("Entrez une lettre");
         guesses.push(guess);
@@ -29,11 +42,12 @@ guessLetter=()=>{
         }   
     }
 
-    generateHTML(printAnswer,answerText);
-    generateHTML(printGuesses,guessesText);
+    //Run
+    generateAnswer();
 
-    
     playGame=()=>{
+
+
         compareLetters();
 
         console.log(guesses);
