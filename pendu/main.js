@@ -34,45 +34,51 @@ guessLetter=()=>{
     updateHTML=(where,what)=> where.innerHTML=what.join(".");
 
     compareLetters=()=>{
-        guess=prompt("Entrez une lettre");
-        guesses.push(guess);
-        for (let i=0; i<solution.length; i++){  //compare l'input du joueur à la solution)
-            if (guess==solution[i]){
-                let guessAmount=i+1;
-                alert("Félicitations, la lettre "+solution[i]+" se trouve en position"+ guessAmount);
-                answer.splice(i,1,guess);       //remplit la solution avec les lettres devinées
-                console.log(answer); 
-            }
-        }   
+             //old solution: guess=prompt("Entrez une lettre");
+
+            guess=document.getElementById("lettre").value;
+            guesses.push(guess);
+            for (let i=0; i<solution.length; i++){  //compare l'input du joueur à la solution)
+                if (guess==solution[i]){
+                    let guessAmount=i+1;
+                    alert("Félicitations, la lettre "+solution[i]+" se trouve en position"+ guessAmount);
+                    answer.splice(i,1,guess);       //remplit la solution avec les lettres devinées
+                    console.log(answer); 
+                }
+            } 
+          
     }
 
     playGame=()=>{
+        document.getElementById("btn").addEventListener("click", function(){ 
+            compareLetters();
 
+            console.log(guesses);
+        
+            // affiche les arrays mis à jour
+            updateHTML(printAnswer,answer);
+            updateHTML(printGuesses,guesses);
 
-        compareLetters();
-
-        console.log(guesses);
-       
-        // affiche les arrays mis à jour
-        updateHTML(printAnswer,answer);
-        updateHTML(printGuesses,guesses);
-
-        checkComplete();
+            checkComplete();
+        });
     }
 
     checkComplete=()=>{
         if(solution.join()==answer.join()){
-            return alert("Félicitations, la solution était "+answer.join());
+            document.getElementById("lettre").value="";
+            return alert("Félicitations, la solution était "+answer.join(""));
+            
         }
         else{
-            alert("Essayez encore");
-            playGame();
+            
+            document.getElementById("lettre").value="";
+            return alert("Essayez encore");
         }
     }
 
     //Run
     generateAnswer();
     generateHTML(printGuesses,guessesText);
-    playGame();
+    playGame();   
 }
 window.onload=()=> guessLetter();
