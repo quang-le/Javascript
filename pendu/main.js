@@ -51,9 +51,7 @@ guessLetter=()=>{
         else{
             alert("Essayez encore");
             playGame();
-        }
-
-        
+        }    
     }
     playGame();
 }
