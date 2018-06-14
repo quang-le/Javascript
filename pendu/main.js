@@ -1,11 +1,9 @@
-
+/*var solution=["B","O","N","J","O","U","R"]; // la solution
+var guesses=[];                             //stocke les tentatives du joueur
+var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées*/
 
 guessLetter=()=>{
-
-    var solution=["B","O","N","J","O","U","R"]; // la solution
-    var guesses=[];                             //stocke les tentatives du joueur
-    var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées
-    
+   
     let printAnswer=document.createElement("P");        //affiche les traits "vides"
     let answerText=document.createTextNode(answer.join("."));
 
