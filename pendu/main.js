@@ -3,6 +3,8 @@ var guesses=[];                             //stocke les tentatives du joueur
 var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées*/
 
 guessLetter=()=>{
+
+    //Variables
     var askRiddle=prompt("Quel mot veux-tu faire deviner?");
     var solution=askRiddle.split("");
     var answer=[];
@@ -11,7 +13,8 @@ guessLetter=()=>{
     let printAnswer=document.createElement("P");        //affiche les traits "vides"
     
     let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées  
-
+    
+    //Functions
     generateAnswer=()=>{
         for(j=0;j<solution.length;j++){
             answer.push("_");
@@ -42,9 +45,6 @@ guessLetter=()=>{
         }   
     }
 
-    //Run
-    generateAnswer();
-
     playGame=()=>{
 
 
@@ -56,15 +56,21 @@ guessLetter=()=>{
         updateHTML(printAnswer,answer);
         updateHTML(printGuesses,guesses);
 
+        checkComplete();
+    }
 
+    checkComplete=()=>{
         if(solution.join()==answer.join()){
             return alert("Félicitations, la solution était "+answer.join());
         }
         else{
             alert("Essayez encore");
             playGame();
-        }    
+        }
     }
+
+    //Run
+    generateAnswer();
     playGame();
 }
 window.onload=()=> guessLetter();
