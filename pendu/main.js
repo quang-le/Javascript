@@ -12,7 +12,8 @@ guessLetter=()=>{
 
     let printAnswer=document.createElement("P");        //affiche les traits "vides"
     
-    let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées  
+    let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées 
+    let guessesText=document.createTextNode(guesses.reverse().join("-")); 
     
     //Functions
     generateAnswer=()=>{
@@ -71,6 +72,7 @@ guessLetter=()=>{
 
     //Run
     generateAnswer();
+    generateHTML(printGuesses,guessesText);
     playGame();
 }
 window.onload=()=> guessLetter();
