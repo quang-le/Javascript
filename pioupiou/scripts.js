@@ -1,8 +1,10 @@
+//Variables
 var ctx=document.getElementById("shmup").getContext("2d");
 var position=425;
+var squad=[];
 //draw gun
 gun=(gunPosition)=>{
-        ctx.clearRect(0,0,900,700);
+        ctx.clearRect(0,650,900,50);
         ctx.beginPath();
         ctx.moveTo(gunPosition,700);
         ctx.lineTo((gunPosition+50),700);
@@ -12,6 +14,14 @@ gun=(gunPosition)=>{
         ctx.stroke();
 }
 
+shoot=(shotX,shotY)=>{
+        ctx.strokeRect(shotX,shotY,1,20);
+        ctx.moveTo(position, 650);
+
+        
+}
+
+//Function object to create ennemies easily
 function ennemy(x,y,size,a){
                 this.x=x;
                 this.y=y;
@@ -29,12 +39,13 @@ function ennemy(x,y,size,a){
                     ctx.restore();
                 }
             }
+//Random number generator           
 function getRandomInt(max) {
 return Math.floor(Math.random() * Math.floor(max));
 }
-              
+//Generate random ennemies             
 generateEnnemy = (amount)=>{
-        var squad=[];
+        
         for (i=0;i<amount;i++){
                 squad[i]= new ennemy(getRandomInt(900),0,getRandomInt(40),0);
                 squad[i].draw();
@@ -74,3 +85,5 @@ window.onkeydown=function(event){
 //Run
 gun(position);
 generateEnnemy(5);
+console.log(squad);
+shoot((position+25),625);
