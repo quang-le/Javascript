@@ -12,6 +12,34 @@ gun=(gunPosition)=>{
         ctx.stroke();
 }
 
+function ennemy(x,y,size,a){
+                this.x=x;
+                this.y=y;
+                this.size=size;
+                this.angle=a;
+            
+                this.draw=function(){
+                    ctx.save();
+                    var x=this.x;
+                    var y=this.y;
+                    var s=this.size;
+                    ctx.translate(x,y);
+                    ctx.rotate(this.angle*Math.PI/180);
+                    ctx.strokeRect(-s / 2, -s / 2, s, s);
+                    ctx.restore();
+                }
+            }
+function getRandomInt(max) {
+return Math.floor(Math.random() * Math.floor(max));
+}
+              
+generateEnnemy = (amount)=>{
+        var squad=[];
+        for (i=0;i<amount;i++){
+                squad[i]= new ennemy(getRandomInt(900),0,getRandomInt(40),0);
+                squad[i].draw();
+        }
+}
 //move with mouse
 /*document.addEventListener("click", function(event){
         let x=event.button;
@@ -27,7 +55,7 @@ gun=(gunPosition)=>{
         gun(position);
 })*/
 
-//move with keyboard
+//move with keyboard NEEDS FOCUS TO WORK
 window.onkeydown=function(event){
         let x=event.keycode || event.which;
         console.log(x);
@@ -45,3 +73,4 @@ window.onkeydown=function(event){
 
 //Run
 gun(position);
+generateEnnemy(5);
