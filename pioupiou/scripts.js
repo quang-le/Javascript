@@ -74,13 +74,23 @@ function getRandomInt(max) {
 return Math.floor(Math.random() * Math.floor(max));
 }
 //Generate random ennemies             
-generateEnnemy = (amount)=>{
+generateEnnemyRandom = (amount)=>{
         
         for (i=0;i<amount;i++){
                 squad[i]= new ennemy(getRandomInt(900),0,getRandomInt(40),0);
                 squad[i].draw();
         }
 }
+
+generateEnnemyLine = (amount,h,v,d)=>{
+        let prout=0;
+        for (i=0;i<amount;i++){
+                squad[i]= new ennemy(h-(prout+d),v,30,0)
+                squad[i].draw();
+                prout+=d;
+        }
+}
+
 //move with mouse
 /*document.addEventListener("click", function(event){
         let x=event.button;
@@ -137,6 +147,7 @@ window.onkeydown=function(event){
 
 //Run
 gun(position);
-generateEnnemy(5);
+//generateEnnemyRandom(5);
 console.log(squad);
 //shoot((position+25),625);
+generateEnnemyLine(7,850,50,100);
