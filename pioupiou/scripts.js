@@ -15,8 +15,9 @@ gun=(gunPosition)=>{
 }
 
 shoot=(shotX,shotY)=>{
-        ctx.strokeRect(shotX,shotY,1,20);
         ctx.moveTo(position, 650);
+        ctx.strokeRect(shotX,shotY,1,20);
+        
 
         
 }
@@ -70,13 +71,18 @@ generateEnnemy = (amount)=>{
 window.onkeydown=function(event){
         let x=event.keycode || event.which;
         console.log(x);
-        if(x==37){
-                position-=10;
-                console.log("moved left");        
+        if (x==32){
+                shoot((position+25),625);
+                console.log("shot");
         }
+
         else if (x==39){
                 position+=10;
                 console.log("moved right");
+        }
+        else if(x==37){
+                position-=10;
+                console.log("moved left");        
         }
         gun(position);
 }
@@ -86,4 +92,4 @@ window.onkeydown=function(event){
 gun(position);
 generateEnnemy(5);
 console.log(squad);
-shoot((position+25),625);
+//shoot((position+25),625);
