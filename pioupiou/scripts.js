@@ -81,15 +81,31 @@ generateEnnemyRandom = (amount)=>{
                 squad[i].draw();
         }
 }
-
-generateEnnemyLine = (amount,h,v,d)=>{
+//generate a line of ennemies
+generateEnnemyLine = (amount,h,v,d,s)=>{
         let prout=0;
         for (i=0;i<amount;i++){
-                squad[i]= new ennemy(h-(prout+d),v,30,0)
+                squad[i]= new ennemy(h-(prout+d),v,s,0)
                 squad[i].draw();
                 prout+=d;
         }
+
+        ennemyMoves=()=>{  
+                //condition, recursion/loop and timer to be addedh
+                ennemyTimer=1000;
+                setTimeout(function(){
+                        ctx.clearRect(0,v,900,v+s);
+                        h+=30;
+                        generateEnnemyLine(amount,h,v,d,s); },ennemyTimer);
+                
+
+                             
+        }
+
+        squad.forEach(ennemyMoves);
 }
+
+
 
 //move with mouse
 /*document.addEventListener("click", function(event){
@@ -112,7 +128,7 @@ window.onkeydown=function(event){
         console.log(x);
         if (x==32){
                 if(shotCount==5){
-                        setTimeout(function(){shotCount=0},5000);
+                        setTimeout(function(){shotCount=0},2000);
                 }
                 else{
                         shoot((position+25),trailY);
@@ -150,4 +166,5 @@ gun(position);
 //generateEnnemyRandom(5);
 console.log(squad);
 //shoot((position+25),625);
-generateEnnemyLine(7,850,50,100);
+generateEnnemyLine(15,850,50,50,30);
+//console.log(squad[0].x);
