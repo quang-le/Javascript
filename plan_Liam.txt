@@ -1,0 +1,18 @@
+centrer la zone d'input et la solution.
+placer les guesses et wrong guesses sur 2 colonnes.
+Pendu: une image des panzerknacker qui se révèle en 7 étapes.
+compteur de jeux gagnés
+compeur de jeux
+récompenses cf brosse à dents?
+New game button
+Date
+gestion des majuscules (standardiser pour le jeu mais rendre correct à l'affichage)
+
+illustrations:
+- good guess: riri fifi ou loulou apparaît random
+- bad guess: donald trébuche
+- solution: géo trouvetout sur une machine
+- background: coffre de picsou
+- histoire: les panzer ont mis au point une machine qui va aspirer tout l'argent de Dagobert. Aide les 3 neveux et géo à trouver le code pour désamorcer la machine avant que les panzer ne reviennent.
+
+

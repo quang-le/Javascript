@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>Jeu pendu</title>
 </head>
 <body>
+    <header>Die Panzerknacker Geheimnes Code</header>
+    <section id="intro">
+        <p>Die Panzerknacker willen Onkel Dagoberts geld stielen. Sie haben eine super moderne Maschine gebaut. Herr Düsentrieb kan die Maschine ausschalten aber er braucht den geheimnes Code von die Panzerknacker. Hilfe Trick, Tripp und Trapp den Code finden bevor die Panzerkancker wieder zu Hause kommen!</p>
+        <button  name="start" id="start">Start</button>
+    </section>
     <section id="inputArea"> 
         <label for="lettre">Proposez une lettre : </label><input type="text" name="lettre" id="lettre"/>
         <button  name="btn" id="btn">Valider</button>
@@ -16,6 +22,10 @@
         <p id="wrongGuesses">Wrong guesses</p>
         <p id="allGuesses">All guesses</p>
     </section>
+    <section id="lossCountdown">
+        <div>Panzerknacker Image</div>
+    </section>
+    <footer>Design by MrSheep Games - 2018</footer>
     <script src="main.js"></script>
 </body>
 </html>

@@ -5,8 +5,8 @@ var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devin
 guessLetter=()=>{
 
     //Variables
-    var askRiddle=prompt("Quel mot veux-tu faire deviner?");
-    var solution=askRiddle.split("");
+    let library = ["papa","mama","hallo","roboter","kabel","technik"]
+    var solution= library[getRandomInt(library.length)];
     var answer=[];
     var guesses=[];
     var wrongGuesses=[];
@@ -19,19 +19,24 @@ guessLetter=()=>{
     let wrongGuessesText=document.createTextNode(wrongGuesses.reverse().join("-")); 
     
     //Functions
+    //Random number generator           
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
     generateAnswer=()=>{
         for(j=0;j<solution.length;j++){
             answer.push("_");
             console.log("answer= "+answer);
             console.log(solution.length);
         }
-        let answerText=document.createTextNode(answer.join("."));
-        generateHTML(printAnswer,answerText);
+        let answerText=document.createTextNode("Votre solution"+answer.join("."));
+        generateHTML(printAnswer,answerText,"solution");
     }
 
-    generateHTML=(tag,content)=> {
+    generateHTML=(tag,content,container)=> {
         tag.appendChild(content);
-        document.body.appendChild(tag);
+        document.getElementById(container).appendChild(tag);
     }
 
     updateHTML=(where,what)=> where.innerHTML=what.join("-");
@@ -92,9 +97,9 @@ guessLetter=()=>{
 
     //Run
     generateAnswer();
-    generateHTML(printwrongGuesses,wrongGuessesText);
-    generateHTML(printGuesses,guessesText);
+    generateHTML(printwrongGuesses,wrongGuessesText,"wrongGuesses");
+    generateHTML(printGuesses,guessesText,"allGuesses");
     playGame();  
 
 }
-window.onload=()=> guessLetter();
+document.getElementById("start").addEventListener("click",guessLetter());
