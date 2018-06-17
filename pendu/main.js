@@ -6,7 +6,7 @@ guessLetter=()=>{
 
     //Variables
     let library = ["papa","mama","hallo","roboter","kabel","technik"]
-    var solution= library[getRandomInt(library.length)];
+    var solution= library[getRandomInt(library.length)].split("");
     var answer=[];
     var guesses=[];
     var wrongGuesses=[];

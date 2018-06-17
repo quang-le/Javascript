@@ -1,0 +1,10 @@
+section {
+  border: 1px solid black; }
+
+body {
+  background-image: url("./assets/images/geldspeicher.jpg");
+  /*background-repeat: no-repeat;
+  background-size: contain;*/
+  background-color: lightblue; }
+
+/*# sourceMappingURL=style.css.map */
