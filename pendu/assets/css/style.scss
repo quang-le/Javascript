@@ -2,9 +2,18 @@ section{
     border: 1px solid black;
 }
 body{
-    background-image: url("./assets/images/geldspeicher.jpg");
-    /*background-repeat: no-repeat;
-    background-size: contain;*/
+    background-image: url("https://www.welt.de/img/reise/mobile100867994/1722503347-ci102l-w1024/donald-tresor-DW-Reise-Entenhausen-jpg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: lightblue;
 
+}
+/*#inputArea{
+    display:none;
+}*/
+
+.panzer{
+    background-image:url("http://3.bp.blogspot.com/-OmAz_N0XgeQ/UDgbrMSlD_I/AAAAAAAACgs/Bh2MJGWVATw/s1600/BeaglesWalk.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
