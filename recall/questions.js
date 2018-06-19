@@ -122,13 +122,19 @@ var calculateAverage = function(array) {
     };
 
 var getElementsUntilGreaterThanFive = function(array) {
-    return array.filter(function(e){
-       return array.indexOf(e)<=6; //indexOf doesn't eliminate
-    })
+    let array2=[]
+
+        for (i=0;i<6;i++){
+            array2.push(array[i]);
+        }
+    
+    array=array2;
+    return array;
 }
 
 var convertArrayToObject = function(array) {
-    return 'Write your method here';
+    console.log(array.entries());
+    return array.entries();
 }
 
 var getAllLetters = function(array) {
