@@ -146,19 +146,65 @@ var convertArrayToObject = function(array) {
 } 
 
 var getAllLetters = function(array) {
-    return 'Write your method here';
+   
+    array2=array.toString();
+    console.log(array2);
+    array3=array2.split("").sort();
+    for(i=0;i<array.length-1;i++){
+        array3.shift();
+    }
+    for(i=0;i<array3.length;i++){
+        if (array3[i]==array3[i+1]){
+            array3.splice(i,1);
+        }
+    }
+    console.log(array3);
+
+    return array3;
 }
 
 var swapKeysAndValues = function(object) {
-    return 'Write your method here';
+    let keys=Object.keys(object);
+    let entries=Object.values(object);
+    console.log(keys);
+    console.log(entries);
+    for(x in object){
+        delete object[x];
+        console.log(object);
+    }
+    for (x in entries){
+        object[entries[x]]=keys[x];
+    }
+    console.log(object);
+    return object;
 }
 
 var sumKeysAndValues = function(object) {
-    return 'Write your method here';
+    console.log(object);
+    console.log(Object.keys(object).reduce(function(total,num){return total+num})) //needs to be converted to Number
+    console.log(Object.values(object).reduce(function(tot,numb){return tot+numb}))
+    let key= Object.keys(object);
+    let val= Object.values(object).reduce(function(tot,numb){return tot+numb});
+    for (x in key){
+        key[x]=Number(key[x]);
+    }
+    
+    return key.reduce(function(total,num){return total+num})+val;
 }
 
 var removeCapitals = function(string) {
-    return 'Write your method here';
+    console.log(string)
+    let newString="";
+    for (let i=0;i<string.length;i++){
+        if (string.charAt(i)==string.charAt(i).toUpperCase() && string.charCodeAt(i) !=32){
+            string=string.replace(string.charAt(i),"");
+        }
+        console.log(newString);
+
+        
+    }
+    
+    return string;
 }
 
 var roundUp = function(number) {
