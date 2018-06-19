@@ -255,19 +255,19 @@ calculIMC=()=>{
     if (imc<16.5){
         return alert("Votre IMC est de "+imc+". Vous êtes en dénutrition.")
     }
-    else if (16.5<=imc<18.5){
+    else if (16.5<=imc && imc<18.5){
         return alert("Votre IMC est de "+imc+". Vous êtes maigre")
     }
-    else if (18.5<=imc<25){
+    else if (18.5<=imc && imc<25){
         return alert("Votre IMC est de "+imc+". Vous êtes de corpulence moyenne")
     }
-    else if (25<=imc<30){
+    else if (25<=imc && imc<30){
         return alert("Votre IMC est de "+imc+". Vous êtes en surpoids")
     }
-    else if (30<=imc<35){
+    else if (30<=imc && imc<35){
         return alert("Votre IMC est de "+imc+". Vous êtes en modérément obèse")
     }
-    else if (35<=imc<40){
+    else if (35<=imc && imc<40){
         return alert("Votre IMC est de "+imc+". Vous souffrez d'obésité sévère")
     }
     else if (40<imc){

@@ -133,9 +133,17 @@ var getElementsUntilGreaterThanFive = function(array) {
 }
 
 var convertArrayToObject = function(array) {
-    console.log(array.entries());
-    return array.entries();
-}
+   /* const obj=array.reduce(function(o,key){
+        Object.assign(o,{[key]:whatever})
+        return obj
+    },{});*/ //Solution from stackoverflow, I don't get it.
+    let obj={};
+    for (i=0;i<array.length;i+=2){
+        Object.assign(obj,{[array[i]]:array[i+1]})
+    }
+    array=obj;
+    return array;
+} 
 
 var getAllLetters = function(array) {
     return 'Write your method here';
