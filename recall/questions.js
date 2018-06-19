@@ -208,15 +208,30 @@ var removeCapitals = function(string) {
 }
 
 var roundUp = function(number) {
-    return 'Write your method here';
+    console.log(number);
+    return Math.ceil(number);
 }
 
 var formatDateNicely = function(date) {
-    return 'Write your method here';
+    dateDay=date.getDate();
+    console.log(date);
+    dateMonth=date.getMonth()+1;
+    dateYear=date.getFullYear();
+    console.log(`${dateDay}-${dateMonth}-${dateYear}`)
+    
+    return `0${dateDay}/0${dateMonth}/${dateYear}`;
 }
 
 var getDomainName = function(string) {
-    return 'Write your method here';
+    console.log(string)
+    for (i=0;i<string.length;i++){
+        for(j=string.length-1;j>=0;j--){
+            if (string.charAt(i)== "@" && string.charAt(j)=="."){
+               string= string.slice(i+1,j);
+            }
+        }
+    }
+    return string;
 }
 
 var titleize = function(string) {
