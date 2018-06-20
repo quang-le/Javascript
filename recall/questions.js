@@ -235,22 +235,88 @@ var getDomainName = function(string) {
 }
 
 var titleize = function(string) {
-    return 'Write your method here';
+    let exclusions=["And","Or","The","Of"]
+  
+    for (let i=0;i<string.length;i++){
+        if (string.charCodeAt(i-1)==32 || string.indexOf(i)==0){
+            string= string.replace(string.charAt(i), string.charAt(i).toUpperCase())
+            }
+        }
+    for (let i=0;i<exclusions.length;i++){
+        string=string.replace(" "+exclusions[i]," "+exclusions[i].toLowerCase());
+    }
+    for (let i=0;i<exclusions.length;i++) {
+        string=string.replace(". "+exclusions[i].toLowerCase(), ". "+exclusions[i]);
+    }
+    /*string=string.replace(" And", " and");
+    string=string.replace(" The", " the");
+    string=string.replace(". and",". And");*/
+
+    console.log(string)
+    return string;
 }
 
 var checkForSpecialCharacters = function(string) {
-    return 'Write your method here';
+    let regex1=/[@&%=]/i
+
+    return regex1.test(string);
 }
 
 var squareRoot = function(number) {
-    return 'Write your method here';
+
+    return number**0.5;
 }
 
 var factorial = function(number) {
-    return 'Write your method here';
+    console.log(number);
+    if (number===0 || number===1){
+        return 1;
+    }
+    else{
+        for(i= number-1;i>=1;i--){
+            number*=i;
+        }
+    }
+    return number;
 }
 
 var findAnagrams = function(string) {
+    console.log(string);
+    let array=string.split("");
+    let working=[];//to use in the loop
+    let anagram=[];//stock anagrams here
+    anagram.push(string.split(""));
+    working=array;
+
+    let counter=1;
+    controlNum= factorial(array.length-1);
+    
+    let mover= (source,destination,origin,)=> {
+        source.splice(destination,0,source[origin]);
+        source.splice(origin,1);
+          return source;
+      }
+
+
+    for(i=0;i<controlNum;i++){
+        mover(working,working.length, working.length-2);
+        console.log("working= "+working);
+        anagram.push(working);
+        mover(working,working.length, working.length-2);
+        console.log("reworking="+working);
+        console.log("pushed")
+
+        if (anagram.includes(working)==true){
+            counter+=1;
+            mover(working,working.length, working.length-counter);
+       }
+
+    }
+    console.log("anagram="+anagram);
+   /* mover(working,working.length, working.length-1, working.length-1);
+    mover(working,working.length, working.length-counter);*/
+    
+    
     return 'Write your method here';
 }
 
