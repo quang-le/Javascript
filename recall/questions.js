@@ -284,11 +284,16 @@ var findAnagrams = function(string) {
 
         let array= string.split("");
         let comboLength=1;  // length of the array to which a letter is added
+        let indexes=[];
         let result=[];
         for (i=0;i<array.length;i++){
-          result.push(array[i]); 
+          indexes.push(array[i]); 
         }
-        
+       
+        //swap letters to their index value
+       swapKeysAndValues(indexes);
+       console.log(indexes);
+
         // generate pairs
         let pairs=()=>{
           let addLetter=[];
