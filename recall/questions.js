@@ -281,45 +281,42 @@ var factorial = function(number) {
 }
 
 var findAnagrams = function(string) {
-    console.log(string);
-    let array=string.split("");
-    let working=[];//to use in the loop
-    let anagram=[];//stock anagrams here
-    anagram.push(string.split(""));
-    working=array;
-
-    let counter=1;
-    controlNum= factorial(array.length-1);
-    
-    let mover= (source,destination,origin,)=> {
-        source.splice(destination,0,source[origin]);
-        source.splice(origin,1);
-          return source;
-      }
-
-
-    for(i=0;i<controlNum;i++){
-        mover(working,working.length, working.length-2);
-        console.log("working= "+working);
-        anagram.push(working);
-        mover(working,working.length, working.length-2);
-        console.log("reworking="+working);
-        console.log("pushed")
-
-        if (anagram.includes(working)==true){
-            counter+=1;
-            mover(working,working.length, working.length-counter);
-       }
-
+    let word="abcd";
+    let array= word.split("");
+    let maxLength=[];
+    let comboLength=1;  // length of the array to which a letter is added
+    let result=[];
+    result.push(array);
+    // control numbers
+    for(n=0;n<word.length;n++){
+      maxLength.push(n+1);
     }
-    console.log("anagram="+anagram);
-   /* mover(working,working.length, working.length-1, working.length-1);
-    mover(working,working.length, working.length-counter);*/
+    console.log(maxLength);
     
     
-    return 'Write your method here';
-}
+    // combination function
+    let combination=()=>{
+      let addLetter=[];
+      for (i=0;i<result.length;i++){
+        for (j=0;j<array.length;j++){
+          if(result[i].length==comboLength && array[j].length==1 && result[i].includes(array[j])==false){
+            addLetter=[result[i]+array[j]];
+            result.push(addLetter);
+            }
+        }
+      comboLength+=1
+      }
+      if (comboLength==word.length){
+        return console.log("all anagrams generated");
+      }
+      else if (result.some(function(e){e.length==comboLength}) && comboLength<word.length){
+        combination();
+      }
+    }
+    console.log(result)
 
+
+}
 var convertToCelsius = function(number) {
     return 'Write your method here';
 }
