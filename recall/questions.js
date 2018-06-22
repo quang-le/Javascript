@@ -281,46 +281,87 @@ var factorial = function(number) {
 }
 
 var findAnagrams = function(string) {
-    let word="abcd";
-    let array= word.split("");
-    let maxLength=[];
-    let comboLength=1;  // length of the array to which a letter is added
-    let result=[];
-    result.push(array);
-    // control numbers
-    for(n=0;n<word.length;n++){
-      maxLength.push(n+1);
-    }
-    console.log(maxLength);
-    
-    
-    // combination function
-    let combination=()=>{
-      let addLetter=[];
-      for (i=0;i<result.length;i++){
-        for (j=0;j<array.length;j++){
-          if(result[i].length==comboLength && array[j].length==1 && result[i].includes(array[j])==false){
-            addLetter=[result[i]+array[j]];
-            result.push(addLetter);
-            }
+
+        let array= string.split("");
+        let comboLength=1;  // length of the array to which a letter is added
+        let result=[];
+        for (i=0;i<array.length;i++){
+          result.push(array[i]); 
         }
-      comboLength+=1
-      }
-      if (comboLength==word.length){
-        return console.log("all anagrams generated");
-      }
-      else if (result.some(function(e){e.length==comboLength}) && comboLength<word.length){
-        combination();
-      }
-    }
-    console.log(result)
-
-
+        
+        // generate pairs
+        let pairs=()=>{
+          let addLetter=[];
+          for (i=0;i<array.length;i++){
+            for (j=0;j<array.length;j++){
+                addLetter=array[i]+array[j];
+                switch(array[i]){
+                    case array[j]:
+                    break;
+                  default:
+                    result.push(addLetter);
+                }        
+              }
+            }
+          comboLength+=1
+        }
+        // combine generated strings with origin letters
+        combinator=()=>{
+        let toCombine=result.filter(function(e){return e.length==comboLength});
+          let addMore=[];
+          for (n=0;n<toCombine.length; n++){
+            for(m=0;m<array.length;m++){
+              let include = toCombine[n].includes(array[m]);
+              switch(include){
+                case true:
+                  break;
+                default:
+                  addMore=toCombine[n]+array[m];
+                  result.push(addMore);
+              }
+            } 
+          }
+          comboLength+=1;
+          if (comboLength==string.length){
+            return;
+          }
+          else{
+            combinator();
+          }
+        }
+        //Run functions
+        pairs();
+        combinator();
+        
+        console.log(result); 
+        console.log(comboLength);
+        let final=result.filter(function(e){return e.length==string.length});
+        console.log(final);
+        return(final);
 }
 var convertToCelsius = function(number) {
-    return 'Write your method here';
+    console.log(number);
+
+    fahrenheitToCelsius=temperature=>{
+        temperature=(temperature-32)/1.8;
+        temperature=Math.round(temperature);
+        return temperature;
+    }
+
+    return fahrenheitToCelsius(number);
 }
 
 var letterPosition = function(array) {
-    return 'Write your method here';
+    console.log(array);
+   
+    let result=[];
+    let alphabet={
+        a:1,b:2,c:3,d:4,e:5,f:6,g:7,h:8,i:9,j:10,k:11,l:12,m:13,n:14,o:15,p:16,q:17,r:18,s:19,t:20,u:21,v:22,w:23,x:24,y:25,z:26
+    }
+
+    for (let i=0;i<array.length;i++){
+       let letter=(array[i].toLowerCase());
+       result.push(alphabet[letter]);
+    }
+    return result;
 }
