@@ -282,66 +282,93 @@ var factorial = function(number) {
 
 var findAnagrams = function(string) {
 
-        let array= string.split("");
-        let comboLength=1;  // length of the array to which a letter is added
-        let indexes=[];
-        let result=[];
-        for (i=0;i<array.length;i++){
-          indexes.push(array[i]); 
-        }
-       
-        //swap letters to their index value
-       swapKeysAndValues(indexes);
-       console.log(indexes);
-
-        // generate pairs
-        let pairs=()=>{
-          let addLetter=[];
-          for (i=0;i<array.length;i++){
-            for (j=0;j<array.length;j++){
-                addLetter=array[i]+array[j];
-                switch(array[i]){
-                    case array[j]:
-                    break;
-                  default:
-                    result.push(addLetter);
-                }        
-              }
-            }
-          comboLength+=1
-        }
-        // combine generated strings with origin letters
-        combinator=()=>{
-        let toCombine=result.filter(function(e){return e.length==comboLength});
-          let addMore=[];
-          for (n=0;n<toCombine.length; n++){
-            for(m=0;m<array.length;m++){
-              let include = toCombine[n].includes(array[m]);
-              switch(include){
-                case true:
-                  break;
-                default:
-                  addMore=toCombine[n]+array[m];
-                  result.push(addMore);
-              }
-            } 
-          }
-          comboLength+=1;
-          if (comboLength==string.length){
-            return;
-          }
-          else{
-            combinator();
+    let array=string.split("");
+    let result=[];
+    let comboLength=1;
+    let indexes=[];
+    let solution=[];
+    
+    //generate array of indexes to be able to filter duplicates but allow double letter words
+    for (i=0;i<array.length;i++){
+      indexes.push(i);
+    }
+    
+    // push the individual letters in the result
+    for (i=0;i<array.length;i++){
+      result.push(indexes[i].toString()); 
+    }
+    
+    // generate pairs
+    let pairs=()=>{
+      let addLetter=[];
+      for (i=0;i<array.length;i++){
+        for (j=0;j<array.length;j++){
+            addLetter=indexes[i].toString()+indexes[j].toString();
+            switch(indexes[i]){
+                case indexes[j]:
+                break;
+              default:
+                result.push(addLetter);
+            }        
           }
         }
-        //Run functions
-        pairs();
+      comboLength+=1
+    }
+    
+    // combine generated strings with origin letters
+    combinator=()=>{
+    let toCombine=result.filter(function(e){return e.length==comboLength});
+      let addMore=[];
+      for (n=0;n<toCombine.length; n++){
+        for(m=0;m<array.length;m++){
+          let include= toCombine[n].includes(indexes[m].toString());
+          switch(include){
+            case true:
+              break;
+            default:
+              addMore=toCombine[n]+indexes[m].toString();
+              //console.log(addMore);
+              result.push(addMore);
+          }
+        } 
+      }
+      comboLength+=1;
+      if (comboLength==word.length){
+        return;
+      }
+      else{
         combinator();
-        
-        console.log(result); 
-        console.log(comboLength);
-        let final=result.filter(function(e){return e.length==string.length});
-        console.log(final);
+      }
+    }
+    
+    //converts a string of numbers into the corresponding anagram
+    let converter=(num)=>{
+      var work=num.split("");
+      for (i=0;i<work.length;i++){
+        work[i]=Number(work[i]);
+        //console.log(work);
+      }
+      for (j=0;j<work.length;j++){
+        work[j]=array[work[j]];
+      }
+      work = work.join("");
+      //console.log(num);
+      //console.log(work);
+      return work;
+    }
+    
+    //loops converter through results
+    recombine=()=>{
+      for (n=0;n<result.length;n++){
+        solution.push(converter(result[n]));  
+      }
+    }
+    
+    pairs();
+    combinator();
+    recombine();
+    let final=solution.filter(function(e){return e.length==string.length});
+    // console.log(final);
         return(final);
 }
 var convertToCelsius = function(number) {
