@@ -363,13 +363,13 @@ var findAnagrams = function(string) {
         solution.push(converter(result[n]));  
       }
     }
-    
+    //Run Functions
     pairs();
     combinator();
     recombine();
     let final=solution.filter(function(e){return e.length==string.length});
     // console.log(final);
-        return(final);
+    return(final);
 }
 var convertToCelsius = function(number) {
     console.log(number);
