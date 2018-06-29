@@ -102,7 +102,7 @@ generateEnnemyLine = (amount,h,v,d,s)=>{
                              
         }
 
-        squad.forEach(ennemyMoves);
+       // squad.forEach(ennemyMoves);
 }
 
 

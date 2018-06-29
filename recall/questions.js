@@ -256,12 +256,10 @@ var titleize = function(string) {
     return string;
 }
 
-var checkForSpecialCharacters = function(string) {
-    let regex1=/[@&%=]/i
-
+var checkForSpecialCharacters= function(string) {
+    let regex1=/[^-a-z0-9]/i
     return regex1.test(string);
 }
-
 var squareRoot = function(number) {
 
     return number**0.5;

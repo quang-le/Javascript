@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery 4-3</title>
+</head>
+<body>
+    <label for="nom">Nom<input type="text" name="nom" id="nom"></label>
+    <label for="prenom">Prénom<input type="text" name="prenom" id="prenom"></label>
+    <label for="email">Adresse mail<input type="text" name="email" id="email"></label>
+    <label for="phone">Téléphone<input type="text" name="phone" id="phone"></label>
+    <button type="button" id="btn">Submit</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        let mailName=/[^-a-z0-9_]/i
+        let mailDomain=/[^-a-z.0-9_]/i
+        let regexName=/[^-a-z]/i
+        let regexNumber=/[^0-9]/
+        
+       // console.log(mailName.test("pepito"));
+
+        function checkNames(regex,string) {
+            let testResult=regexName.test(string);
+            if (testResult==true){
+                return alert("Données incorrectes");
+            }
+            else{
+                console.log("données correctes");
+            }
+
+            return string;
+        };
+
+        function checkNumbers(regexp,numString){
+            let numResult=regexNumber.test(numString);
+            if (numResult==true){
+                return alert("Numero incorrect");
+            }
+            else{
+                console.log("données correctes");
+            }
+
+            return numString;
+        };
+
+
+        //console.log (checkNames($("#nom").val()));
+
+        // checks address validity. I skipped the tld as it's tedious to control without outside resources
+        function checkMail(mail){
+            mailString=mail.toString();
+            arrayMail=mailString.split("@");    //ensures there's one @ symbol
+            if (arrayMail.length>2){            //ensures there's only 1 @ symbol
+                return alert("erreur@");
+            }
+            else if (arrayMail[1].includes(".")==false){    //ensures there's at least one dot in the address' second part
+                return alert("pas de point");
+            }
+            else if(mailName.test(arrayMail[0])==true){   //ensures there's no ineligible character in the adress
+                return alert ("email nom incorrect");
+            }
+            else if (mailDomain.test(arrayMail[1])==true){ 
+                console.log(arrayMail[1]);   // same with the domain
+                return alert ("email domaine incorrect");
+            }
+            else{
+                console.log("email correct");
+                return mail;
+            }
+        };
+
+        //Run
+        $("#btn").click(function(){
+            checkNames(regexName,$("#nom").val());
+            checkNames(regexName,$("#prenom").val());
+            checkMail($("#email").val());
+            checkNumbers(regexNumber,$("#phone").val());
+        })
+
+        
+
+
+
+        
+
+    </script>
+</body>
+</html>

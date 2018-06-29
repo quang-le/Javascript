@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="draw"></div>
+    </div>
+    <form action="">Dirigez le carré avec les flèches de votre clavier<input type="text"></form>
+
+    <p></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        let docStats=document.getElementById("container").getBoundingClientRect();
+        let docWidth=docStats.width;
+        let docHeight=docStats.height;
+        console.log(docWidth);
+        console.log(docHeight);
+        $("input").keydown(function(e){
+            let x=e.keyCode || e.which;
+            //console.log(e);
+            //console.log(e.keyCode);
+            if (x==37){
+                
+                if ((parseInt($("#draw").css("left")) >= parseInt($("#container").css("left"))) === true){
+                    $("#draw").animate({left:'-=10px'}, "fast");    
+                }
+                else {
+                    console.log("out left");
+                    $("#draw").css("left",docWidth.toString()+"px");
+                }
+            }
+            else if (x==38){  
+                console.log(parseInt($("#container").css("top")));
+
+                if ((parseInt($("#draw").css("top")) >= parseInt($("#container").css("top"))) === true){
+                    $("#draw").animate({top:'-=10px'}, "fast");   
+                }
+                else {
+                    console.log("out above");
+                    $("#draw").css("top",docHeight.toString()+"px");
+                }   
+            }
+
+            else if (x==39){
+                
+                if((parseInt($("#draw").css("left"))<=parseInt(docWidth)) === true){
+                    $("#draw").animate({left:'+=10px'},"fast");
+                }
+                else{
+                    console.log("out right");
+                    $("#draw").css("left","0px")
+                }
+                
+            }
+            else if (x==40){
+                if ((parseInt($("#draw").css("top")) <= parseInt(docHeight)) ===true){
+                    $("#draw").animate({top:'+=10px'},"fast");
+                }
+                else{
+                    console.log("out below");
+                    $("#draw").css("top","0px");
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+     

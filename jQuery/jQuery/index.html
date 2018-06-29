@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shifumi</title>
+</head>
+<body>
+    <form>
+        <input type="radio" id="pierre" name="choix" value="Pierre">Pierre</input>
+        <input type="radio" id="papier" name="choix" value="Papier">Papier</input>
+        <input type="radio" id="ciseaux" name="choix" value="Ciseaux">Ciseaux</input>
+        
+    </form>
+    <section>
+        <button type="button" id="shifumi" name="btn">Shifumi!</button>
+        <button type="button" id="newGame" name="newGame">Nouvelle partie?</button>
+    </section>
+    <section>
+        <p id="result"></p>
+        <p id="wins">Parties gagnées:0</p>
+        <p id="losses">Parties perdues:0</p>
+        <p id="total">Parties jouées:0</p>
+        <p id="ratio"> Ratio victoires: 0%</p>
+    </section>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        console.log($("input[name='choix']:checked").val());
+        $("#newGame").css("display","none");
+        let shifumi=["Pierre","Papier","Ciseaux"];
+        let playerWin=0
+        let totalGames=0
+        let cpuWins=0;
+
+
+        //Random number generator           
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        // core game function
+        function compare(){
+            let winner="CPU"
+            let cpu=shifumi[getRandomInt(2)];
+            let player=$("input[name='choix']:checked").val()
+            if (cpu+player==="PierreCiseaux" || cpu+player==="PapierPierre" || cpu+player==="CiseauxPapier"){
+                totalGames+=1;
+                cpuWins+=1
+                $("#result").text(cpu+" bat "+player+". "+winner+" remporte la partie")
+            }
+            else if(cpu==player){
+                totalGames+=1;
+                $("#result").text("Match nul");
+            }
+            else{
+                winner="Le joueur";
+                totalGames+=1;
+                playerWin+=1;
+                $("#result").text(player+" bat "+cpu+". "+winner+" remporte la partie")    
+            }
+            winner="CPU";
+            $("#wins").text("Parties Gagnées: "+playerWin);
+            $("#losses").text("Parties perdues: "+cpuWins);
+            $("#total").text("Parties jouées: "+totalGames);
+            $("#ratio").text("Ratio victoires: "+(playerWin/totalGames)*100+"%");
+            $("#newGame").css("display","block");
+        }
+
+        // launch game on click
+        $("#shifumi").click(compare);
+
+        // clear screen and launch new game
+
+        $("#newGame").click(function(){
+            $("#result").text("");
+            $("#newGame").css("display","none");
+
+        })
+
+
+    </script>
+</body>
+</html>

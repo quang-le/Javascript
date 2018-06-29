@@ -12,7 +12,12 @@
     <button type="button" name="button" >Envoyer</button>
   </form>
   <script>
+    $("#nom").focusin(()=>{$("#nom").css("border","1px solid green")});
+    $("#nom").focusout(()=>{$("#nom").css("border","1px solid red")});
+    $("#prenom").focusin(()=>{$("#prenom").css("border","1px solid green")});
+    $("#prenom").focusout(()=>{$("#prenom").css("border","1px solid red")});
 
+    //there is a simpler solution using 'this'
   </script>
 </body>
 </html>
