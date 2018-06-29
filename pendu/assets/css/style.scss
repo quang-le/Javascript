@@ -2,9 +2,9 @@ section{
     border: 1px solid black;
 }
 body{
-    background-image: url("../images/geldspeicher.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    //background-image: url("../images/geldspeicher1.jpg");
+    //background-repeat: no-repeat;
+    //background-size: contain;
     background-color: lightblue;
 
 }
@@ -16,4 +16,22 @@ body{
     background-image:url("../images/BeaglesWalk.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+section{
+    outline:1px solid red;
+}
+
+h1{
+    text-align: center;
+}
+#start{
+    width:50%;
+    margin:auto;
+    outline:1px solid green;
+    position: relative;
+    left: 25vw;
+}
+#inputArea{
+    
 }
