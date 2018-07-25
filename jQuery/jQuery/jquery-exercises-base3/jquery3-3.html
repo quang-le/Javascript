@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    <label for="num">Proposez un chiffre entre 1 et 100 : </label><input type="text" name="num" id="num"/>
+    <button type="button" id="btn" name="btn">Valider</button>
+    
+    <p></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        let count=0;
+        let random = getRandomInt(100);
+        console.log(document.getElementById("num").value);
+        
+        //Random number generator  
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+        }
+       
+       
+        $("#btn").click(function(){
+            count+=1
+            console.log((Number($('#num').val())));
+            console.log($('#num').val());
+
+            if (Number($('#num').val())== random){
+                $('p').text('correct, vous avez trouvé en '+count+' essais')
+            }
+            else if (Number($('#num').val())< random){
+                $('p').text('plus');
+            }
+            else if (Number($('#num').val())> random){
+                $('p').text('moins');
+            }
+            else if (isNaN(Number($('#num')))==true){
+                $('p').text('Veuillez entrer un nombre');
+            }
+            console.log(count)
+            return count;
+            ;})
+    </script>  
+</body>
+</html>

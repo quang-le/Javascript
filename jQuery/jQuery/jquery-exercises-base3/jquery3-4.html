@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="draw" width="200" height="200"> Votre navigateur ne supporte pas canvas!</canvas>
+    <button type="button" id="height" name="btn">hauteur+10px</button>
+    <button type="button" id="green" name="btn">vert</button>    
+    <button type="button" id="reset" name="btn"> reset couleur</button>
+    <button type="button" id="clear" name="btn">disparaît</button>
+    <button type="button" id="redraw" name="btn">apparaît</button>
+
+    <p></p>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        let ctx=document.getElementById("draw").getContext("2d");
+        let rectHeight= getRandomInt(90);
+        let rectColor= 'black'
+        rect(rectHeight, rectColor);
+        
+        function rect(height,color){
+            ctx.clearRect(0,0,200,200);
+            ctx.strokeStyle=color;
+            ctx.strokeRect(50,200-height,100, height)
+            
+        }
+
+        //Random number generator  
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+        }
+        
+        //height +10px
+        $("#height").click(function(){
+            if (rectHeight<90){
+                rectHeight+=10;
+                console.log(rectHeight)
+
+            }
+            else{
+                rectHeight=10;
+            }
+            rect(rectHeight,rectColor);
+        });
+
+        //green border
+        $("#green").click(function(){
+            rectColor='green'
+            rect(rectHeight,rectColor);
+
+        });
+        // reset color
+        $("#reset").click(function(){
+            rectColor='black'
+            rect(rectHeight,rectColor);
+
+        });
+
+        //efface rect
+        $("#clear").click(function(){
+            
+            rect(rectHeight,'transparent');
+
+        });
+
+        //affiche rect
+        $("#redraw").click(function(){
+            rect(rectHeight,rectColor);
+
+        });
+
+    </script>  
+</body>
+</html>

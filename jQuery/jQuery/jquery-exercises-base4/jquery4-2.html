@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery4-2</title>
+</head>
+<body>
+    <form>
+        <label for="salaire">Salaire</label><input type="text" name="salaire" id="salaire">
+        <label for="genre">Genre: </label>
+        <input type="radio" name="genre" id="homme" value="homme">Homme</input>
+        <input type="radio" name="genre" id="femme" value="femme">Femme</input>
+        <input type="radio" name="genre" id="autres" value="autre">Autre</input>
+
+        <label for="enfants">|Nombre d'enfants</label><input type="text" name="enfants" id="enfants">
+    </form>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        function salaireNet(salaire){
+            salaire=Number(salaire);
+            let charges= (salaire*18)/100;
+            let assurances=(salaire*7)/100;
+            let cotisations=(salaire*5)/100;
+            let totalCharges=charges+assurances+cotisations;
+            let reductionsCharges=0;
+            let nombreEnfants=Number($("#enfants").val());
+
+           console.log($("input[name='genre']:checked").val());
+
+            if ($("input[name='genre']:checked").val() =="femme"){
+                reductionsCharges+=(totalCharges*2)/100;
+                console.log("reduc femme: "+reductionsCharges);
+            }
+            if (nombreEnfants==3){
+                reductionsCharges+=totalCharges/100;
+                console.log("reduc 3 enfants "+reductionsCharges);
+            }
+            else if(nombreEnfants==4){
+                reductionsCharges+=(totalCharges*2)/100;
+                console.log("reduc 4: "+reductionsCharges);
+            }
+            totalCharges-=reductionsCharges;
+            console.log(totalCharges);
+            let net=salaire-totalCharges;
+            console.log(net);
+            return net
+                            };
+        salaireNet($("#salaire").val());
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+let word="abcd";
+let array= word.split("");
+//let maxLength=[];
+let comboLength=1;  // length of the array to which a letter is added
+let result=[];
+result.push(array);
+// control numbers
+//for(n=0;n<word.length;n++){
+//  maxLength.push(n+1);
+//}
+//console.log(maxLength);
+
+
+// combination function
+let combination=()=>{
+  let addLetter=[];
+  for (i=0;i<array.length;i++){
+    for (j=0;j<array.length;j++){
+      if(array[i].length==comboLength) && array[j].length==1 && array[i].includes(array[j])==false){
+        addLetter=[array[i]+array[j]];
+        result.push(addLetter);
+        console.log("loop");
+        }
+      }
+    }
+  comboLength+=1
+  }
+  if (comboLength==word.length){
+    return console.log("all anagrams generated");
+  }
+  else if (result.some(function(e){e.length==comboLength}) && comboLength<word.length){
+    combination();
+  }
+}
+console.log(result)+---------------------------------------------------
+
+
+
+-----------------------
+
+  if (comboLength==word.length){
+    return console.log("all anagrams generated");
+  }
+  else if (result.some(function(e){e.length==comboLength}) && comboLength<word.length){
+    combination();
+  }
