@@ -88,19 +88,16 @@ guessLetter=()=>{
             return alert("Félicitations, la solution était "+answer.join(""));
             
         }
-        else{
-            
+        else{  
             document.getElementById("lettre").value="";
             alert("Essayez encore");
         }
     }
-
     //Run
     generateAnswer();
     generateHTML(printwrongGuesses,wrongGuessesText,"wrongGuesses");
     generateHTML(printGuesses,guessesText,"allGuesses");
     playGame();  
-
 }
 //document.getElementById("start").addEventListener("click",guessLetter);
 guessLetter();
