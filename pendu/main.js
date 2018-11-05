@@ -30,7 +30,7 @@ guessLetter=()=>{
             console.log("answer= "+answer);
             console.log(solution.length);
         }
-        let answerText=document.createTextNode("Lösung: "+answer.join("."));
+        let answerText=document.createTextNode(" "+answer.join("."));
         generateHTML(printAnswer,answerText,"solution");
     }
 

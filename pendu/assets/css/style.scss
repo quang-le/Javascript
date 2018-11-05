@@ -26,6 +26,7 @@ $dimensions: 16 24 32 48 64 96 128 256 512;
 
 section{
     border: 1px solid black;
+    font-size: 20px;
 }
 
 h1{
@@ -51,7 +52,9 @@ h1{
     font-size: 5rem;
     color:#FF3D16;
     text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black, -10px 10px 0 #FFC609;
-    
+    @media screen and (max-width:765px){
+        font-size: 3rem;
+    }
 }
 
 input{
@@ -70,9 +73,12 @@ body{
 }
 #scenario{
     text-align: justify;
-    width:30%;
+    width:35%;
     margin-left: 15px;
     margin-right: 15px;
+    @media screen and (max-width:765px){
+        width:100%;
+    }
 }
 
 #raptout{
