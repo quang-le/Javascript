@@ -1,15 +1,7 @@
-//import apiKey from 'api';
+import {apiKey} from './api.js';
+// import guessLetter from './gameplay.js';
 
-var config = {
-    apiKey: "",
-    authDomain: "game-liam.firebaseapp.com",
-    databaseURL: "https://game-liam.firebaseio.com",
-    projectId: "game-liam",
-    storageBucket: "game-liam.appspot.com",
-    messagingSenderId: "68625347190"
-  };
-
-firebase.initializeApp(config);
+firebase.initializeApp(apiKey);
 const database=firebase.database();
 
 var allRefs= database.ref('words/');
@@ -31,7 +23,7 @@ allRefs.on("value",
     }
 )
 
-guessLetter=()=>{
+function guessLetter(){
     console.log(library);
     //Variables
     //let library = ["papa","mama","hallo","roboter","kabel","technik"]
@@ -64,8 +56,8 @@ guessLetter=()=>{
         return Math.floor(Math.random() * Math.floor(max));
     }
 
-    generateAnswer=()=>{
-        for(j=0;j<solution.length;j++){
+    function generateAnswer(){
+        for(let j=0;j<solution.length;j++){
             answer.push("_");
             console.log("answer= "+answer);
             console.log(solution.length);
@@ -74,14 +66,14 @@ guessLetter=()=>{
         generateHTML(printAnswer,answerText,"solution");
     }
 
-    generateHTML=(tag,content,container)=> {
+    function generateHTML(tag,content,container){
         tag.appendChild(content);
         document.getElementById(container).appendChild(tag);
     }
 
-    updateHTML=(where,what)=> where.innerHTML=what.join("-");
+    function updateHTML(where,what){where.innerHTML=what.join("-");}
 
-    compareLetters=()=>{
+    function compareLetters(){
              //old solution: guess=prompt("Entrez une lettre");
 
         let guess=document.getElementById("lettre").value.toUpperCase();
@@ -109,7 +101,7 @@ guessLetter=()=>{
         }     
     }
 
-    playGame=()=>{
+    function playGame(){
         document.getElementById("btn").addEventListener("click", function(){ 
             compareLetters();
 
@@ -125,10 +117,10 @@ guessLetter=()=>{
         });
     }
 
-    checkComplete=()=>{
+    function checkComplete(){
         if(solution.join()==answer.join()){
             document.getElementById("lettre").value="";
-            return alert("Super! Die Panzerkackermaschine ist ausgeschaltet"+answer.join(""));
+            return alert("Super! Der Passwort war "+answer.join(""));
             
         }
         else{  
