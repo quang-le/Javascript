@@ -1,11 +1,38 @@
-/*var solution=["B","O","N","J","O","U","R"]; // la solution
-var guesses=[];                             //stocke les tentatives du joueur
-var answer=["_","_","_","_","_","_","_"];   //sert à afficher les lettres devinées*/
+import apiKey from 'api';
+var config = {
+    apiKey: apiKey,
+    authDomain: "game-liam.firebaseapp.com",
+    databaseURL: "https://game-liam.firebaseio.com",
+    projectId: "game-liam",
+    storageBucket: "game-liam.appspot.com",
+    messagingSenderId: "68625347190"
+  };
+
+firebase.initializeApp(config);
+const database=firebase.database();
+
+var allRefs= database.ref('game-liam/');
+var library=[];
+
+allRefs.on("value",
+    function(snapshot){
+        let words=snapshot.val();   
+        let wordsArray=Object.keys(words).map(i=>words[i]);
+        for (let i=0;i<wordsArray.length;i++){
+            library.push(wordsArray[i])
+        }
+        return library;
+    },
+    function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    }
+)
+console.log(library);
 
 guessLetter=()=>{
 
     //Variables
-    let library = ["papa","mama","hallo","roboter","kabel","technik"]
+    //let library = ["papa","mama","hallo","roboter","kabel","technik"]
     var solution= library[getRandomInt(library.length)].split("");
     solution=solutionToUpperCase(solution);
     var answer=[];
