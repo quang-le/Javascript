@@ -1,6 +1,7 @@
-import apiKey from 'api';
+//import apiKey from 'api';
+
 var config = {
-    apiKey: apiKey,
+    apiKey: "",
     authDomain: "game-liam.firebaseapp.com",
     databaseURL: "https://game-liam.firebaseio.com",
     projectId: "game-liam",
@@ -11,26 +12,27 @@ var config = {
 firebase.initializeApp(config);
 const database=firebase.database();
 
-var allRefs= database.ref('game-liam/');
+var allRefs= database.ref('words/');
 var library=[];
 
 allRefs.on("value",
     function(snapshot){
-        let words=snapshot.val();   
+        let words=snapshot.val(); 
+        console.log(words);  
         let wordsArray=Object.keys(words).map(i=>words[i]);
+        console.log(wordsArray);
         for (let i=0;i<wordsArray.length;i++){
             library.push(wordsArray[i])
         }
-        return library;
+        guessLetter();
     },
     function (errorObject) {
         console.log("The read failed: " + errorObject.code);
     }
 )
-console.log(library);
 
 guessLetter=()=>{
-
+    console.log(library);
     //Variables
     //let library = ["papa","mama","hallo","roboter","kabel","technik"]
     var solution= library[getRandomInt(library.length)].split("");
@@ -141,5 +143,5 @@ guessLetter=()=>{
     playGame();  
 }
 //document.getElementById("start").addEventListener("click",guessLetter);
-guessLetter();
+
 
