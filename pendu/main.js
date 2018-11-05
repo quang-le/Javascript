@@ -13,10 +13,12 @@ guessLetter=()=>{
     var wrongGuesses=[];
 
     let printAnswer=document.createElement("P");        //affiche les traits "vides"
+    printAnswer.style.color="green";
     
     let printGuesses=document.createElement("P");       //affiche les lettres déjà essayées 
     let guessesText=document.createTextNode(guesses.reverse().join("-")); 
-    let printwrongGuesses=document.createElement("P");       //affiche les lettres déjà essayées 
+    let printwrongGuesses=document.createElement("P");//affiche les lettres déjà essayées 
+    printwrongGuesses.style.color="red";
     let wrongGuessesText=document.createTextNode(wrongGuesses.reverse().join("-")); 
     
     //Functions
@@ -54,6 +56,9 @@ guessLetter=()=>{
              //old solution: guess=prompt("Entrez une lettre");
 
         let guess=document.getElementById("lettre").value.toUpperCase();
+        if (guess.length>1){
+            return alert("Bitte nur eine Buchstab eindrucken")
+        }
         if (wrongGuesses.includes(guess)==true || guesses.includes(guess)==true){
             console.log("double essai");
         }
@@ -62,7 +67,7 @@ guessLetter=()=>{
             for (let i=0; i<solution.length; i++){  //compare l'input du joueur à la solution)
                 if (guess==solution[i]){
                     let letterIndex=i+1;
-                    alert("Félicitations, la lettre "+solution[i]+" se trouve en position"+ letterIndex);
+                    //alert("Félicitations, la lettre "+solution[i]+" se trouve en position"+ letterIndex);
                     answer.splice(i,1,guess);       //remplit la solution avec les lettres devinées
                     console.log(answer); 
                 }
@@ -94,12 +99,12 @@ guessLetter=()=>{
     checkComplete=()=>{
         if(solution.join()==answer.join()){
             document.getElementById("lettre").value="";
-            return alert("Félicitations, la solution était "+answer.join(""));
+            return alert("Super! Die Panzerkackermaschine ist ausgeschaltet"+answer.join(""));
             
         }
         else{  
             document.getElementById("lettre").value="";
-            alert("Essayez encore");
+            //alert("Essayez encore");
         }
     }
     //Run
