@@ -7,6 +7,7 @@ guessLetter=()=>{
     //Variables
     let library = ["papa","mama","hallo","roboter","kabel","technik"]
     var solution= library[getRandomInt(library.length)].split("");
+    solution=solutionToUpperCase(solution);
     var answer=[];
     var guesses=[];
     var wrongGuesses=[];
@@ -19,6 +20,14 @@ guessLetter=()=>{
     let wrongGuessesText=document.createTextNode(wrongGuesses.reverse().join("-")); 
     
     //Functions
+
+    function solutionToUpperCase(array){
+        let upperCaseSolution=[];
+        for(let i=0;i<array.length;i++){
+            upperCaseSolution.push(array[i].toUpperCase());
+        }
+        return upperCaseSolution
+    }
     //Random number generator           
     function getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
@@ -44,7 +53,7 @@ guessLetter=()=>{
     compareLetters=()=>{
              //old solution: guess=prompt("Entrez une lettre");
 
-        guess=document.getElementById("lettre").value;
+        let guess=document.getElementById("lettre").value.toUpperCase();
         if (wrongGuesses.includes(guess)==true || guesses.includes(guess)==true){
             console.log("double essai");
         }
