@@ -30,7 +30,7 @@ guessLetter=()=>{
             console.log("answer= "+answer);
             console.log(solution.length);
         }
-        let answerText=document.createTextNode("Votre solution"+answer.join("."));
+        let answerText=document.createTextNode("Lösung: "+answer.join("."));
         generateHTML(printAnswer,answerText,"solution");
     }
 
@@ -102,4 +102,6 @@ guessLetter=()=>{
     playGame();  
 
 }
-document.getElementById("start").addEventListener("click",guessLetter());
+//document.getElementById("start").addEventListener("click",guessLetter);
+guessLetter();
+

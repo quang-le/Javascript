@@ -5,32 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+    <!--<link href="./node_modules/bulma/css/bulma.css" rel="stylesheet" type="text/css">-->
     <title>Jeu pendu</title>
 </head>
 <body>
-<<<<<<< HEAD
-    <header><h1>Die Panzerknacker Geheimnes Code</h1></header>
-    <section id="intro">
-        <p>Die Panzerknacker willen Onkel Dagoberts geld stielen. Sie haben eine super moderne Maschine gebaut. Herr Düsentrieb kan die Maschine ausschalten aber er braucht den geheimnes Code von die Panzerknacker. Hilfe Trick, Tripp und Trapp den Code finden bevor die Panzerkancker wieder zu Hause kommen!</p>
-        <button  name="start" id="start">Start</button>
+    <header class="hero is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title" id="mainTitle">Die Panzerknacker Geheimnes Code</h1>
+            </div>
+        </div>
+    </header>
+    <section id="intro" class="section level">
+        <div class="level-item">
+            <figure class="image is-256x256">
+                <img id="raptout" src="./assets/images/Panzerknacker.png">
+            </figure>
+        </div>
+        <p class="level-item" id="scenario">Die Panzerknacker willen Onkel Dagoberts geld stielen. Sie haben eine super moderne Maschine gebaut. Herr Düsentrieb kan die Maschine ausschalten aber er braucht den geheimnes Code von die Panzerknacker. Hilfe Trick, Tripp und Trapp den Code finden bevor die Panzerkancker wieder zu Hause kommen!</p>
+       <!--<div class="container has-text-centered" id="startWrap">
+            <button class="button" name="start" id="start">Spielen!</button>
+        </div>-->
+        <div class="level-item">
+            <figure class="image is-256x256">
+                <img  src="./assets/images/TrickundTrapp.png">
+            </figure>
+        </div>
     </section>
-    <section id="inputArea"> 
-        <label for="lettre">Proposez une lettre : </label><input type="text" name="lettre" id="lettre"/>
-        <button  name="btn" id="btn">Valider</button>
+    <section id="inputArea" class="section level">
+        <div class="level-item has-text-centered" id="inputWrapper">
+            <label for="lettre">Welche Buchstab : </label><input type="text" name="lettre" id="lettre"/>
+            <button class="button" name="btn" id="btn">Bestätigen</button>
+        </div>
     </section>
-    <section>
-        <p id="solution">Solution</p>
-        <p id="wrongGuesses">Wrong guesses</p>
-        <p id="allGuesses">All guesses</p>
+    <section class="section level">
+        <p class="level-item has-text-centered" id="solution"></p>
+        <p class="level-item has-text-centered" id="wrongGuesses">Falsche Buchstaben:  </p>
+        <p class="level-item has-text-centered" id="allGuesses">Alle Buchstaben:  </p>
     </section>
-    <section id="lossCountdown">
-        <div class="panzer">Panzerknacker Image</div>
-    </section>
-    <footer>Design by MrSheep Games - 2018</footer>
-=======
-    <label for="lettre">Votre lettre </label><input type="text" id="lettre" name="lettre"/><br/>
-    <button  id="button" name ="button">Valider</button>
->>>>>>> userRiddle
+    <footer class="footer has-text-centered">Design by MrSheep Games - 2018</footer>
     <script src="main.js"></script>
 </body>
 </html>
